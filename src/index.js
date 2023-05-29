@@ -8,21 +8,20 @@ class Link extends React.Component
     return React.createElement (
       'p',
       null,
-      React.createElement (
-        'a',
-        {href: this.props.url},
-        `Read more about ${this.props.framework}`
-      )
+      React.createElement ('a', {href: this.props.url}, this.props.children)
     );
   }
 }
 
+const boldReact =
+  React.createElement ('strong', null, 'React');
+
 const link1 =
-  React.createElement (Link, {framework: 'React', url: '//react.dev'});
+  React.createElement (Link, {url: '//react.dev'}, boldReact);
 const link2 =
-  React.createElement (Link, {framework: 'Vue', url: '//vuejs.org'});
+  React.createElement (Link, {url: '//vuejs.org'}, 'Vue');
 const link3 =
-  React.createElement (Link, {framework: 'Angular', url: '//angular.io'});
+  React.createElement (Link, {url: '//angular.io'}, 'Angular');
 const group =
   React.createElement (React.Fragment, null, link1, link2, link3);
 const domElement = document.getElementById ("root");
