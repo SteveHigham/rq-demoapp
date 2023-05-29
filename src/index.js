@@ -1,9 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const world =
-  React.createElement ('em', null, 'world');
-const title =
-  React.createElement ("h1", null, "Hello ", world, '!');
+class Link extends React.Component
+{
+  render ()
+  {
+    return React.createElement (
+      'p',
+      null,
+      React.createElement (
+        'a',
+        {href: this.props.url},
+        `Read more about ${this.props.framework}`
+      )
+    );
+  }
+}
+
+const link1 =
+  React.createElement (Link, {framework: 'React', url: '//react.dev'});
+const link2 =
+  React.createElement (Link, {framework: 'Vue', url: '//vuejs.org'});
+const link3 =
+  React.createElement (Link, {framework: 'Angular', url: '//angular.io'});
+const group =
+  React.createElement (React.Fragment, null, link1, link2, link3);
 const domElement = document.getElementById ("root");
-ReactDOM.createRoot (domElement).render (title);
+ReactDOM.createRoot (domElement).render (group);
+
+// End of index.js
