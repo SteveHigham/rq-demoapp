@@ -1,26 +1,28 @@
-import React, {Fragment, Component} from 'react';
-import Link from './Link';
+import React, {Component, Fragment} from 'react';
+
+class Link extends Component
+{
+  render ()
+  {
+    return (
+      <p>
+        <a href='//react.dev'>Read more about React</a>
+      </p>
+    );
+  }
+}
 
 class App extends Component
 {
   render ()
   {
-    const link1 =
-      React.createElement (
-        Link,
-        {framework: 'React', url: '//react.dev'}
-      );
-    const link2 =
-      React.createElement (
-        Link,
-        {framework: 'Vue', url: '//vuejs.org'}
-      );
-    const link3 =
-      React.createElement (
-        Link,
-        {framework: 'Angular', url: '//angular.io'}
-      );
-    return React.createElement (Fragment, null, link1, link2, link3);
+    return (
+      <Fragment>
+        <Link />
+        <Link />
+        <Link />
+      </Fragment>
+    );
   }
 }
 
