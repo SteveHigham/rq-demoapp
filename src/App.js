@@ -1,21 +1,32 @@
 import {Component, Fragment} from 'react';
 
-class Link extends Component
+class Breeds extends Component
 {
-  render () { return <a href={this.props.url}>{this.props.children}</a>; }
+  render ()
+  {
+    return (
+      <dl>
+        {this.props.list.map (({breed, description}) => (
+          <Fragment key={breed}>
+            <dt>{breed}</dt>
+            <dd>{description}</dd>
+          </Fragment>
+        ))}
+      </dl>
+    );
+  }
 }
 
 class App extends Component
 {
   render ()
   {
-    return (
-      <Fragment>
-        <Link url='//react.dev'><strong>React</strong></Link>
-        <Link url='//vuejs.org'>Vue</Link>
-        <Link url='//angular.io'>Angular</Link>
-      </Fragment>
-    );
+    const list = [
+      {breed: "Chihuahua", description: "Small breed of dog."},
+      {breed: "Corgi", description: "Cute breed of dog."},
+      {breed: "Cumberland Sheepdog", description: "Extinct breed of dog."},
+    ];
+    return <Breeds list={list} />;
   }
 }
 
