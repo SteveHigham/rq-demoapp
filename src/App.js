@@ -1,10 +1,10 @@
 import './App.css';
 
-function MenuItem (props)
+function MenuItem ({href, label})
 {
   return (
     <li className='menuItem'>
-      <a className='menu-link' href={props.href}>{props.label}</a>
+      <a className='menu-link' href={href}>{label}</a>
     </li>
   );
 }
