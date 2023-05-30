@@ -1,34 +1,29 @@
-import {Component, Fragment} from 'react';
+import './App.css';
 
-class Breeds extends Component
+function MenuItem (props)
 {
-  render ()
-  {
-    return (
-      <dl>
-        {this.props.list.map (({breed, description}) => (
-          <Fragment key={breed}>
-            <dt>{breed}</dt>
-            <dd>{description}</dd>
-          </Fragment>
-        ))}
-      </dl>
-    );
-  }
+  return (
+    <li className='menuItem'>
+      <a className='menu-link' href={props.href}>{props.label}</a>
+    </li>
+  );
 }
 
-class App extends Component
+function Menu ()
 {
-  render ()
-  {
-    const list = [
-      {breed: "Chihuahua", description: "Small breed of dog."},
-      {breed: "Corgi", description: "Cute breed of dog."},
-      {breed: "Cumberland Sheepdog", description: "Extinct breed of dog."},
-    ];
-    return <Breeds list={list} />;
-  }
+  return (
+    <nav className='navbar'>
+      <h1 className='title'>TheMenuCompany</h1>
+      <ul className='menu'>
+        <MenuItem label='Home'  href='/' />
+        <MenuItem label='About' href='/about/' />
+        <MenuItem label='Blog'  href='/blog/' />
+      </ul>
+    </nav>
+  );
 }
+
+function App () { return <main> <Menu /> </main>; }
 
 export default App;
 
